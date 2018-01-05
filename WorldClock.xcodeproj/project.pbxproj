@@ -12,9 +12,9 @@
 		E48121271FFF2C6100AB23DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48121261FFF2C6100AB23DC /* AppDelegate.swift */; };
 		E481212C1FFF2C6100AB23DC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E481212A1FFF2C6100AB23DC /* Main.storyboard */; };
 		E481212E1FFF2C6100AB23DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E481212D1FFF2C6100AB23DC /* Assets.xcassets */; };
-		E48121311FFF2C6100AB23DC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E481212F1FFF2C6100AB23DC /* LaunchScreen.storyboard */; };
 		E481213C1FFF2C6100AB23DC /* WorldClockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E481213B1FFF2C6100AB23DC /* WorldClockTests.swift */; };
 		E48121471FFF2C6100AB23DC /* WorldClockUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48121461FFF2C6100AB23DC /* WorldClockUITests.swift */; };
+		E481215B1FFF37F400AB23DC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E481215A1FFF37F400AB23DC /* LaunchScreen.storyboard */; };
 		EF14391CC60B6C5E0B06A229 /* Pods_WorldClockTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4937329B7D0268F804B92BFC /* Pods_WorldClockTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -49,7 +49,6 @@
 		E48121261FFF2C6100AB23DC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E481212B1FFF2C6100AB23DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E481212D1FFF2C6100AB23DC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		E48121301FFF2C6100AB23DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E48121321FFF2C6100AB23DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E48121371FFF2C6100AB23DC /* WorldClockTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WorldClockTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E481213B1FFF2C6100AB23DC /* WorldClockTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldClockTests.swift; sourceTree = "<group>"; };
@@ -57,6 +56,7 @@
 		E48121421FFF2C6100AB23DC /* WorldClockUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WorldClockUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E48121461FFF2C6100AB23DC /* WorldClockUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldClockUITests.swift; sourceTree = "<group>"; };
 		E48121481FFF2C6100AB23DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E481215A1FFF37F400AB23DC /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,7 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				E481212A1FFF2C6100AB23DC /* Main.storyboard */,
-				E481212F1FFF2C6100AB23DC /* LaunchScreen.storyboard */,
+				E481215A1FFF37F400AB23DC /* LaunchScreen.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -326,7 +326,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E48121311FFF2C6100AB23DC /* LaunchScreen.storyboard in Resources */,
+				E481215B1FFF37F400AB23DC /* LaunchScreen.storyboard in Resources */,
 				E481212E1FFF2C6100AB23DC /* Assets.xcassets in Resources */,
 				E481212C1FFF2C6100AB23DC /* Main.storyboard in Resources */,
 			);
@@ -553,14 +553,6 @@
 				E481212B1FFF2C6100AB23DC /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		E481212F1FFF2C6100AB23DC /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E48121301FFF2C6100AB23DC /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
