@@ -16,6 +16,10 @@ class WorldClockVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        getTimeZoneDetailList(countryCode: "IR") { (result) -> () in
+            print(result.zones[0].countryName)
+        }
+        
         if let path = Bundle.main.path(forResource: "Countries", ofType: "json") {
             do {
                 let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
