@@ -15,6 +15,13 @@
 		E481213C1FFF2C6100AB23DC /* WorldClockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E481213B1FFF2C6100AB23DC /* WorldClockTests.swift */; };
 		E48121471FFF2C6100AB23DC /* WorldClockUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48121461FFF2C6100AB23DC /* WorldClockUITests.swift */; };
 		E481215B1FFF37F400AB23DC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E481215A1FFF37F400AB23DC /* LaunchScreen.storyboard */; };
+		E481215D2000ADA800AB23DC /* WorldClockVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E481215C2000ADA800AB23DC /* WorldClockVC.swift */; };
+		E481215F2000ADDF00AB23DC /* WorldClockCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E481215E2000ADDF00AB23DC /* WorldClockCell.swift */; };
+		E48121612000FFE900AB23DC /* TimeZone.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48121602000FFE900AB23DC /* TimeZone.swift */; };
+		E48121652001217700AB23DC /* Countries.json in Resources */ = {isa = PBXBuildFile; fileRef = E48121642001217700AB23DC /* Countries.json */; };
+		E48121672001219900AB23DC /* CountryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48121662001219900AB23DC /* CountryCell.swift */; };
+		E4812169200121B900AB23DC /* CountryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4812168200121B900AB23DC /* CountryVC.swift */; };
+		E481216B200122EA00AB23DC /* TimeZoneDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = E481216A200122EA00AB23DC /* TimeZoneDetail.swift */; };
 		EF14391CC60B6C5E0B06A229 /* Pods_WorldClockTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4937329B7D0268F804B92BFC /* Pods_WorldClockTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +64,13 @@
 		E48121461FFF2C6100AB23DC /* WorldClockUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldClockUITests.swift; sourceTree = "<group>"; };
 		E48121481FFF2C6100AB23DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E481215A1FFF37F400AB23DC /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E481215C2000ADA800AB23DC /* WorldClockVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldClockVC.swift; sourceTree = "<group>"; };
+		E481215E2000ADDF00AB23DC /* WorldClockCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldClockCell.swift; sourceTree = "<group>"; };
+		E48121602000FFE900AB23DC /* TimeZone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeZone.swift; sourceTree = "<group>"; };
+		E48121642001217700AB23DC /* Countries.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Countries.json; sourceTree = "<group>"; };
+		E48121662001219900AB23DC /* CountryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCell.swift; sourceTree = "<group>"; };
+		E4812168200121B900AB23DC /* CountryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryVC.swift; sourceTree = "<group>"; };
+		E481216A200122EA00AB23DC /* TimeZoneDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeZoneDetail.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +183,8 @@
 		E48121541FFF2D8F00AB23DC /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E48121602000FFE900AB23DC /* TimeZone.swift */,
+				E481216A200122EA00AB23DC /* TimeZoneDetail.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -176,6 +192,8 @@
 		E48121551FFF2D9400AB23DC /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E481215E2000ADDF00AB23DC /* WorldClockCell.swift */,
+				E48121662001219900AB23DC /* CountryCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -183,6 +201,8 @@
 		E48121561FFF2D9B00AB23DC /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				E481215C2000ADA800AB23DC /* WorldClockVC.swift */,
+				E4812168200121B900AB23DC /* CountryVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -199,6 +219,7 @@
 		E48121581FFF2DB000AB23DC /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E48121642001217700AB23DC /* Countries.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -328,6 +349,7 @@
 			files = (
 				E481215B1FFF37F400AB23DC /* LaunchScreen.storyboard in Resources */,
 				E481212E1FFF2C6100AB23DC /* Assets.xcassets in Resources */,
+				E48121652001217700AB23DC /* Countries.json in Resources */,
 				E481212C1FFF2C6100AB23DC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -511,7 +533,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E481216B200122EA00AB23DC /* TimeZoneDetail.swift in Sources */,
+				E48121612000FFE900AB23DC /* TimeZone.swift in Sources */,
+				E481215D2000ADA800AB23DC /* WorldClockVC.swift in Sources */,
+				E48121672001219900AB23DC /* CountryCell.swift in Sources */,
 				E48121271FFF2C6100AB23DC /* AppDelegate.swift in Sources */,
+				E4812169200121B900AB23DC /* CountryVC.swift in Sources */,
+				E481215F2000ADDF00AB23DC /* WorldClockCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
