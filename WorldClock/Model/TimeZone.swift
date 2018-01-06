@@ -7,3 +7,21 @@
 //
 
 import Foundation
+import ObjectMapper
+
+class TimeZone: Mappable {
+    
+    var countryCode: String!
+    var countryName: String!
+    var zoneName: String!
+    
+    required init?(map: Map) {
+        
+    }
+    
+    func mapping(map: Map) {
+        countryCode <- map["countryCode"]
+        countryName <- map["countryName"]
+        zoneName <- map["zoneName"]
+    }
+}

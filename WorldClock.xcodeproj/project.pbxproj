@@ -22,6 +22,7 @@
 		E48121672001219900AB23DC /* CountryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48121662001219900AB23DC /* CountryCell.swift */; };
 		E4812169200121B900AB23DC /* CountryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4812168200121B900AB23DC /* CountryVC.swift */; };
 		E481216B200122EA00AB23DC /* TimeZoneDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = E481216A200122EA00AB23DC /* TimeZoneDetail.swift */; };
+		E481216D20012D4000AB23DC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E481216C20012D4000AB23DC /* Constants.swift */; };
 		EF14391CC60B6C5E0B06A229 /* Pods_WorldClockTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4937329B7D0268F804B92BFC /* Pods_WorldClockTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -71,6 +72,7 @@
 		E48121662001219900AB23DC /* CountryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCell.swift; sourceTree = "<group>"; };
 		E4812168200121B900AB23DC /* CountryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryVC.swift; sourceTree = "<group>"; };
 		E481216A200122EA00AB23DC /* TimeZoneDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeZoneDetail.swift; sourceTree = "<group>"; };
+		E481216C20012D4000AB23DC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -227,6 +229,7 @@
 		E48121591FFF2DBA00AB23DC /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				E481216C20012D4000AB23DC /* Constants.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -540,6 +543,7 @@
 				E48121271FFF2C6100AB23DC /* AppDelegate.swift in Sources */,
 				E4812169200121B900AB23DC /* CountryVC.swift in Sources */,
 				E481215F2000ADDF00AB23DC /* WorldClockCell.swift in Sources */,
+				E481216D20012D4000AB23DC /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
