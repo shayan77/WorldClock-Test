@@ -10,3 +10,5 @@ import Foundation
 
 let baseUrl = "http://api.timezonedb.com/v2/list-time-zone"
 let apiKey = "ABJE9ZYLADM5"
+
+var zoneName = ""

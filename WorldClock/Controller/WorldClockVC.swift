@@ -10,29 +10,20 @@ import UIKit
 import ObjectMapper
 
 class WorldClockVC: UIViewController {
-    
-    var countries = [TimeZone]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        getTimeZoneDetailList(countryCode: "IR") { (result) -> () in
-            print(result.zones[0].countryName)
-        }
-        
-        if let path = Bundle.main.path(forResource: "Countries", ofType: "json") {
-            do {
-                let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
-                let jsonResult = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves)
-                countries = Mapper<TimeZone>().mapArray(JSONArray: jsonResult as! [[String : Any]])
-                print(countries[10].countryName)
-            } catch {
-                print("error")
+        if zoneName != "" {
+            getTimeZoneDetailList(zoneName: zoneName) { (result) -> () in
+                print(result.zones.count)
             }
         }
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        print(zoneName)
     }
 }

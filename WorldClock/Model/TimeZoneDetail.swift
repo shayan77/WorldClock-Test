@@ -49,8 +49,8 @@ class Zone: Mappable {
     }
 }
 
-func getTimeZoneDetailList(countryCode: String, success: @escaping (_ result: TimeZoneDetail) -> ()) {
-    let URL = "\(baseUrl)?key=\(apiKey)&format=json&country=\(countryCode)"
+func getTimeZoneDetailList(zoneName: String, success: @escaping (_ result: TimeZoneDetail) -> ()) {
+    let URL = "\(baseUrl)?key=\(apiKey)&format=json&zone=\(zoneName)"
     
     Alamofire.request(URL, method: .get, encoding: JSONEncoding.default).responseObject { (response: DataResponse<TimeZoneDetail>) in
         let getTimeZoneDetailList = response.result.value
