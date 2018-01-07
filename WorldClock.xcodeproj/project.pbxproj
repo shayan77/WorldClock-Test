@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		4E4BE431FC796A37148A7540 /* Pods_WorldClockUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3084A677EBB1CC98BADFDA76 /* Pods_WorldClockUITests.framework */; };
 		E25CA93A70703B6FD2AEA2C8 /* Pods_WorldClock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1B688C423425694A37DCFD5 /* Pods_WorldClock.framework */; };
+		E400B01020022B0A002EBB18 /* KSMHand.m in Sources */ = {isa = PBXBuildFile; fileRef = E400B00C20022B0A002EBB18 /* KSMHand.m */; };
+		E400B01120022B0A002EBB18 /* BEMAnalogClockView.m in Sources */ = {isa = PBXBuildFile; fileRef = E400B00E20022B0A002EBB18 /* BEMAnalogClockView.m */; };
+		E400B01320024E9C002EBB18 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E400B01220024E9C002EBB18 /* Extensions.swift */; };
 		E48121271FFF2C6100AB23DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48121261FFF2C6100AB23DC /* AppDelegate.swift */; };
 		E481212C1FFF2C6100AB23DC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E481212A1FFF2C6100AB23DC /* Main.storyboard */; };
 		E481212E1FFF2C6100AB23DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E481212D1FFF2C6100AB23DC /* Assets.xcassets */; };
@@ -53,6 +56,12 @@
 		985D5F7BEC60527282C6628F /* Pods-WorldClockUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WorldClockUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WorldClockUITests/Pods-WorldClockUITests.release.xcconfig"; sourceTree = "<group>"; };
 		A1B688C423425694A37DCFD5 /* Pods_WorldClock.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WorldClock.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7122F958EF38F4CE80465F9 /* Pods-WorldClock.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WorldClock.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WorldClock/Pods-WorldClock.debug.xcconfig"; sourceTree = "<group>"; };
+		E400B00B20022A61002EBB18 /* WorldClock-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WorldClock-Bridging-Header.h"; sourceTree = "<group>"; };
+		E400B00C20022B0A002EBB18 /* KSMHand.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KSMHand.m; sourceTree = "<group>"; };
+		E400B00D20022B0A002EBB18 /* BEMAnalogClockView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BEMAnalogClockView.h; sourceTree = "<group>"; };
+		E400B00E20022B0A002EBB18 /* BEMAnalogClockView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BEMAnalogClockView.m; sourceTree = "<group>"; };
+		E400B00F20022B0A002EBB18 /* KSMHand.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KSMHand.h; sourceTree = "<group>"; };
+		E400B01220024E9C002EBB18 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		E48121231FFF2C6100AB23DC /* WorldClock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorldClock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E48121261FFF2C6100AB23DC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E481212B1FFF2C6100AB23DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -158,6 +167,7 @@
 				E48121581FFF2DB000AB23DC /* Resources */,
 				E48121591FFF2DBA00AB23DC /* Utilities */,
 				E48121261FFF2C6100AB23DC /* AppDelegate.swift */,
+				E400B00B20022A61002EBB18 /* WorldClock-Bridging-Header.h */,
 				E481212D1FFF2C6100AB23DC /* Assets.xcassets */,
 				E48121321FFF2C6100AB23DC /* Info.plist */,
 			);
@@ -221,6 +231,10 @@
 		E48121581FFF2DB000AB23DC /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E400B00D20022B0A002EBB18 /* BEMAnalogClockView.h */,
+				E400B00E20022B0A002EBB18 /* BEMAnalogClockView.m */,
+				E400B00F20022B0A002EBB18 /* KSMHand.h */,
+				E400B00C20022B0A002EBB18 /* KSMHand.m */,
 				E48121642001217700AB23DC /* Countries.json */,
 			);
 			path = Resources;
@@ -230,6 +244,7 @@
 			isa = PBXGroup;
 			children = (
 				E481216C20012D4000AB23DC /* Constants.swift */,
+				E400B01220024E9C002EBB18 /* Extensions.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -536,6 +551,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E400B01020022B0A002EBB18 /* KSMHand.m in Sources */,
 				E481216B200122EA00AB23DC /* TimeZoneDetail.swift in Sources */,
 				E48121612000FFE900AB23DC /* TimeZone.swift in Sources */,
 				E481215D2000ADA800AB23DC /* WorldClockVC.swift in Sources */,
@@ -543,6 +559,8 @@
 				E48121271FFF2C6100AB23DC /* AppDelegate.swift in Sources */,
 				E4812169200121B900AB23DC /* CountryVC.swift in Sources */,
 				E481215F2000ADDF00AB23DC /* WorldClockCell.swift in Sources */,
+				E400B01120022B0A002EBB18 /* BEMAnalogClockView.m in Sources */,
+				E400B01320024E9C002EBB18 /* Extensions.swift in Sources */,
 				E481216D20012D4000AB23DC /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -709,6 +727,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mehranpoor.WorldClock;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/$(PROJECT_NAME)/$(PROJECT_NAME)-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -726,6 +745,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mehranpoor.WorldClock;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/$(PROJECT_NAME)/$(PROJECT_NAME)-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

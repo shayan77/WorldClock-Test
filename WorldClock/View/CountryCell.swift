@@ -18,7 +18,7 @@ class CountryCell: UITableViewCell {
         super.awakeFromNib()
     }
     
-    func updateTimeZoneList(timeZone: TimeZone) {
+    func updateTimeZoneList(timeZone: RegionTimeZone) {
         self.zoneNameLbl.text = timeZone.zoneName
         self.countryNameLbl.text = timeZone.countryName
         self.countryCodeLbl.text = timeZone.countryCode

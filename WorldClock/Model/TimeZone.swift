@@ -9,7 +9,7 @@
 import Foundation
 import ObjectMapper
 
-class TimeZone: Mappable {
+class RegionTimeZone: Mappable {
     
     var countryCode: String!
     var countryName: String!

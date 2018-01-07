@@ -14,8 +14,8 @@ class CountryVC: UIViewController, UITableViewDelegate, UITableViewDataSource, U
     @IBOutlet weak var countryTableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
-    var timeZones = [TimeZone]()
-    var filteredTimeZones = [TimeZone]()
+    var timeZones = [RegionTimeZone]()
+    var filteredTimeZones = [RegionTimeZone]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +26,7 @@ class CountryVC: UIViewController, UITableViewDelegate, UITableViewDataSource, U
             do {
                 let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
                 let jsonResult = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves)
-                timeZones = Mapper<TimeZone>().mapArray(JSONArray: jsonResult as! [[String : Any]])
+                timeZones = Mapper<RegionTimeZone>().mapArray(JSONArray: jsonResult as! [[String : Any]])
                 filteredTimeZones = timeZones
                 self.countryTableView.reloadData()
             } catch {
@@ -87,8 +87,8 @@ class CountryVC: UIViewController, UITableViewDelegate, UITableViewDataSource, U
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        filteredTimeZones = searchText.isEmpty ? timeZones : timeZones.filter { (item: TimeZone) -> Bool in
-            return item.countryName.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
+        filteredTimeZones = searchText.isEmpty ? timeZones : timeZones.filter { (item: RegionTimeZone) -> Bool in
+            return (item.countryName.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil) || (item.zoneName.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil)
         }
         
         countryTableView.reloadData()
