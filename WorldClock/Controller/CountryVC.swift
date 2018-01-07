@@ -95,6 +95,7 @@ class CountryVC: UIViewController, UITableViewDelegate, UITableViewDataSource, U
     }
     
     @IBAction func cancelBtnPressed(_ sender: Any) {
+        zoneName = ""
         dismiss(animated: true, completion: nil)
     }
 }

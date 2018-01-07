@@ -11,7 +11,9 @@ import ObjectMapper
 
 class WorldClockVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    @IBOutlet weak var worldClickTableView: UITableView!
+    @IBOutlet weak var worldClockTableView: UITableView!
+    @IBOutlet weak var noTimezoneImage: UIImageView!
+    @IBOutlet weak var noTimezoneLbl: UILabel!
     
     var timeZonesDetails = [Zone]()
     
@@ -27,18 +29,34 @@ class WorldClockVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         if zoneName != "" {
             squareLoading = initSquareLoading(view: view)
             getTimeZoneDetailList(zoneName: zoneName) { (result) -> () in
-                print(result.zones[0].timestamp)
                 self.timeZonesDetails.append(contentsOf: result.zones)
-                self.worldClickTableView.reloadData()
+                self.timeZonesDetails.reverse()
+                self.worldClockTableView.reloadData()
+                self.checkExistingTimeZone()
                 squareLoading.stop()
             }
         }
     }
     
     func viewControllerUtilities() {
-        worldClickTableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 12))
-        worldClickTableView.delegate = self
-        worldClickTableView.dataSource = self
+        worldClockTableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 12))
+        worldClockTableView.delegate = self
+        worldClockTableView.dataSource = self
+        
+        noTimezoneImage.isHidden = false
+        noTimezoneLbl.isHidden = false
+        worldClockTableView.isHidden = true
+    }
+    
+    func checkExistingTimeZone() {
+        self.worldClockTableView.isHidden = false
+        self.noTimezoneImage.isHidden = true
+        self.noTimezoneLbl.isHidden = true
+        if timeZonesDetails.isEmpty {
+            self.noTimezoneImage.isHidden = false
+            self.noTimezoneLbl.isHidden = false
+            self.worldClockTableView.isHidden = true
+        }
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -73,6 +91,19 @@ class WorldClockVC: UIViewController, UITableViewDelegate, UITableViewDataSource
             return 220
         } else {
             return 110
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == UITableViewCellEditingStyle.delete) {
+            self.timeZonesDetails.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            self.worldClockTableView.reloadData()
+            self.checkExistingTimeZone()
         }
     }
 }
