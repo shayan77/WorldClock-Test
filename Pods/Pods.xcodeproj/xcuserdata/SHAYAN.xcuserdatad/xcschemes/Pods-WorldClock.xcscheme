@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0920"
+   LastUpgradeVersion = "0700"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "08037CF125933630D45F944189A634D6"
+               BlueprintIdentifier = "4F0CE12B53316183E42180659AF9E160"
                BuildableName = "Pods_WorldClock.framework"
                BlueprintName = "Pods-WorldClock"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -47,7 +47,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "08037CF125933630D45F944189A634D6"
+            BlueprintIdentifier = "4F0CE12B53316183E42180659AF9E160"
             BuildableName = "Pods_WorldClock.framework"
             BlueprintName = "Pods-WorldClock"
             ReferencedContainer = "container:Pods.xcodeproj">

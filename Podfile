@@ -5,7 +5,6 @@ target 'WorldClock' do
 
   pod 'Alamofire'
   pod 'AlamofireObjectMapper'
-  pod 'SDWebImage'
   pod 'AASquaresLoading'
 
   target 'WorldClockTests' do
