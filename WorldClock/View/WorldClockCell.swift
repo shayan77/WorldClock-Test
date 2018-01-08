@@ -23,16 +23,16 @@ class WorldClockCell: UITableViewCell {
     func updateWorldClockList(timeZoneDetail: Zone) {
         self.cityNameLbl.text = timeZoneDetail.zoneName.sliceString(needle: "/", beforeNeedle: false)
         
-        if 7 ..< 18 ~= convertTimestampToHour(timestamp: "\(timeZoneDetail.timestamp!)") {
+        if 7 ..< 18 ~= timeZoneDetail.convertTimestampToHour() {
             day()
-            self.offsetLbl.text = "Day  \(secondsToHoursMinutes(seconds: timeZoneDetail.gmtOffset)) gmt offset"
+            self.offsetLbl.text = "Day  \(timeZoneDetail.secondsToHoursMinutes()) gmt offset"
         } else {
             night()
-            self.offsetLbl.text = "Night  \(secondsToHoursMinutes(seconds: timeZoneDetail.gmtOffset)) gmt offset"
+            self.offsetLbl.text = "Night  \(timeZoneDetail.secondsToHoursMinutes()) gmt offset"
         }
-        self.analogClockView.hours = convertTimestampToHour(timestamp: "\(timeZoneDetail.timestamp!)")
-        self.analogClockView.minutes = convertTimestampToMinute(timestamp: "\(timeZoneDetail.timestamp!)")
-        self.analogClockView.seconds = convertTimestampToSecond(timestamp: "\(timeZoneDetail.timestamp!)")
+        self.analogClockView.hours = timeZoneDetail.convertTimestampToHour()
+        self.analogClockView.minutes = timeZoneDetail.convertTimestampToMinute()
+        self.analogClockView.seconds = timeZoneDetail.convertTimestampToSecond()
     }
     
     func day() {

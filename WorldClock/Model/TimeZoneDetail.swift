@@ -47,6 +47,46 @@ class Zone: Mappable {
         gmtOffset <- map["gmtOffset"]
         timestamp <- map["timestamp"]
     }
+    
+    func secondsToHoursMinutes () -> String {
+        return "\(gmtOffset / 3600):\((gmtOffset % 3600) / 60) hrs"
+    }
+    
+    func convertTimestampToTime() -> String {
+        let date = Date(timeIntervalSince1970: TimeInterval(Double(timestamp)))
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH:mm:ss"
+        dateFormatter.timeZone = TimeZone(identifier: "UTC")
+        let localDate = dateFormatter.string(from: date)
+        return localDate
+    }
+    
+    func convertTimestampToHour() -> Int {
+        let date = Date(timeIntervalSince1970: TimeInterval(Double(timestamp)))
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH"
+        dateFormatter.timeZone = TimeZone(identifier: "UTC")
+        let localDate = dateFormatter.string(from: date)
+        return Int(localDate)!
+    }
+    
+    func convertTimestampToMinute() -> Int {
+        let date = Date(timeIntervalSince1970: TimeInterval(Double(timestamp)))
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "mm"
+        dateFormatter.timeZone = TimeZone(identifier: "UTC")
+        let localDate = dateFormatter.string(from: date)
+        return Int(localDate)!
+    }
+    
+    func convertTimestampToSecond() -> Int {
+        let date = Date(timeIntervalSince1970: TimeInterval(Double(timestamp)))
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "mm"
+        dateFormatter.timeZone = TimeZone(identifier: "UTC")
+        let localDate = dateFormatter.string(from: date)
+        return Int(localDate)!
+    }
 }
 
 func getTimeZoneDetailList(zoneName: String, success: @escaping (_ result: TimeZoneDetail) -> ()) {

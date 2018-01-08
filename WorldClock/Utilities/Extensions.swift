@@ -74,48 +74,6 @@ extension UIViewController {
     }
 }
 
-extension UITableViewCell {
-    func secondsToHoursMinutes (seconds : Int64) -> String {
-        return "\(seconds / 3600):\((seconds % 3600) / 60) hrs"
-    }
-    
-    func convertTimestampToTime(timestamp: String) -> String {
-        let date = Date(timeIntervalSince1970: TimeInterval(Double(timestamp)!))
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "HH:mm:ss"
-        dateFormatter.timeZone = TimeZone(identifier: "UTC")
-        let localDate = dateFormatter.string(from: date)
-        return localDate
-    }
-    
-    func convertTimestampToHour(timestamp: String) -> Int {
-        let date = Date(timeIntervalSince1970: TimeInterval(Double(timestamp)!))
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "HH"
-        dateFormatter.timeZone = TimeZone(identifier: "UTC")
-        let localDate = dateFormatter.string(from: date)
-        return Int(localDate)!
-    }
-    
-    func convertTimestampToMinute(timestamp: String) -> Int {
-        let date = Date(timeIntervalSince1970: TimeInterval(Double(timestamp)!))
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "mm"
-        dateFormatter.timeZone = TimeZone(identifier: "UTC")
-        let localDate = dateFormatter.string(from: date)
-        return Int(localDate)!
-    }
-    
-    func convertTimestampToSecond(timestamp: String) -> Int {
-        let date = Date(timeIntervalSince1970: TimeInterval(Double(timestamp)!))
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "mm"
-        dateFormatter.timeZone = TimeZone(identifier: "UTC")
-        let localDate = dateFormatter.string(from: date)
-        return Int(localDate)!
-    }
-}
-
 extension String {
     
     func sliceString(needle: String, beforeNeedle: Bool) -> String? {
