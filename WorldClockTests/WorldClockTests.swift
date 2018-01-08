@@ -7,32 +7,51 @@
 //
 
 import XCTest
+import ObjectMapper
 @testable import WorldClock
 
 class WorldClockTests: XCTestCase {
     
-//    var worldClockUnderTest: Zone!
+    var worldClockUnderTest: Zone!
     
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        worldClockUnderTest = Zone()
+        worldClockUnderTest.newTimeZone()
     }
     
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        worldClockUnderTest = nil
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testSecondsToHours() {
+        worldClockUnderTest.gmtOffset = 10000
+        _ = worldClockUnderTest.secondsToHoursMinutes()
+        XCTAssertEqual(worldClockUnderTest.hour, 2, "Hour computed is wrong")
     }
     
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    func testSecondsToMinutes() {
+        worldClockUnderTest.gmtOffset = 10000
+        _ = worldClockUnderTest.secondsToHoursMinutes()
+        XCTAssertEqual(worldClockUnderTest.minute, 46, "Minute computed is wrong")
     }
     
+    func testGetHourFromTimestamp() {
+        worldClockUnderTest.timestamp = 1515414548
+        _ = worldClockUnderTest.convertTimestampToHour()
+        XCTAssertEqual(worldClockUnderTest.hour, 12, "Hour computed from timestamp is wrong")
+    }
+    
+    func testGetMinuteFromTimestamp() {
+        worldClockUnderTest.timestamp = 1515391164
+        _ = worldClockUnderTest.convertTimestampToMinute()
+        XCTAssertEqual(worldClockUnderTest.minute, 59, "Minute computed from timestamp is wrong")
+    }
+    
+    func testGetSecondFromTimestamp() {
+        worldClockUnderTest.timestamp = 1515391199
+        _ = worldClockUnderTest.convertTimestampToSecond()
+        XCTAssertEqual(worldClockUnderTest.second, 59, "Minute computed from timestamp is wrong")
+    }
 }

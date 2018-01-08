@@ -35,9 +35,24 @@ class Zone: Mappable {
     var zoneName: String!
     var gmtOffset: Int64!
     var timestamp: Int64!
+    var hour: Int64!
+    var minute: Int64!
+    var second: Int64!
     
     required init?(map: Map) {
         
+    }
+    
+    init() {
+        newTimeZone()
+    }
+    
+    func newTimeZone() {
+        countryCode = "IR"
+        countryName = "Iran"
+        zoneName = "Asia/Tehran"
+        hour = 0
+        minute = 0
     }
     
     func mapping(map: Map) {
@@ -48,17 +63,10 @@ class Zone: Mappable {
         timestamp <- map["timestamp"]
     }
     
-    func secondsToHoursMinutes () -> String {
+    func secondsToHoursMinutes() -> String {
+        hour = gmtOffset / 3600
+        minute = (gmtOffset % 3600) / 60
         return "\(gmtOffset / 3600):\((gmtOffset % 3600) / 60) hrs"
-    }
-    
-    func convertTimestampToTime() -> String {
-        let date = Date(timeIntervalSince1970: TimeInterval(Double(timestamp)))
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "HH:mm:ss"
-        dateFormatter.timeZone = TimeZone(identifier: "UTC")
-        let localDate = dateFormatter.string(from: date)
-        return localDate
     }
     
     func convertTimestampToHour() -> Int {
@@ -67,6 +75,7 @@ class Zone: Mappable {
         dateFormatter.dateFormat = "HH"
         dateFormatter.timeZone = TimeZone(identifier: "UTC")
         let localDate = dateFormatter.string(from: date)
+        hour = Int64(localDate)!
         return Int(localDate)!
     }
     
@@ -76,15 +85,17 @@ class Zone: Mappable {
         dateFormatter.dateFormat = "mm"
         dateFormatter.timeZone = TimeZone(identifier: "UTC")
         let localDate = dateFormatter.string(from: date)
+        minute = Int64(localDate)!
         return Int(localDate)!
     }
     
     func convertTimestampToSecond() -> Int {
         let date = Date(timeIntervalSince1970: TimeInterval(Double(timestamp)))
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "mm"
+        dateFormatter.dateFormat = "ss"
         dateFormatter.timeZone = TimeZone(identifier: "UTC")
         let localDate = dateFormatter.string(from: date)
+        second = Int64(localDate)!
         return Int(localDate)!
     }
 }

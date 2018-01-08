@@ -37,6 +37,7 @@ class WorldClockVC: UIViewController, UITableViewDelegate, UITableViewDataSource
                     self.timeZonesDetails.append(contentsOf: result.zones)
                     self.timeZonesDetails.reverse()
                     self.worldClockTableView.reloadData()
+                    print(result.zones[0].timestamp)
                     self.checkExistingTimeZone()
                     squareLoading.stop()
                 }
