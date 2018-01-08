@@ -75,12 +75,15 @@ class CountryVC: UIViewController, UITableViewDelegate, UITableViewDataSource, U
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         zoneName = self.filteredTimeZones[indexPath.row].zoneName
+        if UIScreen.main.traitCollection.userInterfaceIdiom == .pad {
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "reloadView"), object: nil)
+        }
         dismiss(animated: true, completion: nil)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if UIScreen.main.traitCollection.userInterfaceIdiom == .pad {
-            return 120
+            return 75
         } else {
             return 60
         }

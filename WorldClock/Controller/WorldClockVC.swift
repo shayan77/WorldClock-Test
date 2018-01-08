@@ -21,11 +21,26 @@ class WorldClockVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         super.viewDidLoad()
         
         viewControllerUtilities()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadView), name:NSNotification.Name(rawValue: "reloadView"), object: nil)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        if zoneName != "" {
+            squareLoading = initSquareLoading(view: view)
+            getTimeZoneDetailList(zoneName: zoneName) { (result) -> () in
+                self.timeZonesDetails.append(contentsOf: result.zones)
+                self.timeZonesDetails.reverse()
+                self.worldClockTableView.reloadData()
+                self.checkExistingTimeZone()
+                squareLoading.stop()
+            }
+        }
+    }
+    
+    @objc func reloadView() {
         if zoneName != "" {
             squareLoading = initSquareLoading(view: view)
             getTimeZoneDetailList(zoneName: zoneName) { (result) -> () in

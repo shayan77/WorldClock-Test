@@ -43,6 +43,7 @@ class WorldClockCell: UITableViewCell {
         analogClockView.minuteHandColor = UIColor.black
         analogClockView.secondHandColor = UIColor.black
         analogClockView.hubColor = UIColor.black
+        analogClockView.reloadClock()
     }
     
     func night() {
@@ -53,18 +54,29 @@ class WorldClockCell: UITableViewCell {
         analogClockView.minuteHandColor = UIColor.white
         analogClockView.secondHandColor = UIColor.white
         analogClockView.hubColor = UIColor.white
+        analogClockView.reloadClock()
     }
     
     func analogClockInit() {
         analogClockView.realTime = true
         analogClockView.enableDigit = true
         analogClockView.enableGraduations = false
-        analogClockView.hourHandWidth = 1.5
-        analogClockView.minuteHandWidth = 1.5
-        analogClockView.hourHandLength = 22
-        analogClockView.minuteHandLength = 30
-        analogClockView.secondHandLength = 35
-        analogClockView.digitOffset = 16.0
-        analogClockView.digitFont = UIFont(name: analogClockView.digitFont.fontName, size: 10.0)
+        if UIScreen.main.traitCollection.userInterfaceIdiom == .pad {
+            analogClockView.hourHandWidth = 3.0
+            analogClockView.minuteHandWidth = 3.0
+            analogClockView.hourHandLength = 44
+            analogClockView.minuteHandLength = 60
+            analogClockView.secondHandLength = 70
+            analogClockView.digitOffset = 21.0
+            analogClockView.digitFont = UIFont(name: analogClockView.digitFont.fontName, size: 20.0)
+        } else {
+            analogClockView.hourHandWidth = 1.5
+            analogClockView.minuteHandWidth = 1.5
+            analogClockView.hourHandLength = 22
+            analogClockView.minuteHandLength = 30
+            analogClockView.secondHandLength = 35
+            analogClockView.digitOffset = 16.0
+            analogClockView.digitFont = UIFont(name: analogClockView.digitFont.fontName, size: 10.0)
+        }
     }
 }
