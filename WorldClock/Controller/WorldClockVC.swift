@@ -27,29 +27,24 @@ class WorldClockVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        if zoneName != "" {
-            squareLoading = initSquareLoading(view: view)
-            getTimeZoneDetailList(zoneName: zoneName) { (result) -> () in
-                self.timeZonesDetails.append(contentsOf: result.zones)
-                self.timeZonesDetails.reverse()
-                self.worldClockTableView.reloadData()
-                self.checkExistingTimeZone()
-                squareLoading.stop()
-            }
-        }
     }
     
     @objc func reloadView() {
-        if zoneName != "" {
-            squareLoading = initSquareLoading(view: view)
-            getTimeZoneDetailList(zoneName: zoneName) { (result) -> () in
-                self.timeZonesDetails.append(contentsOf: result.zones)
-                self.timeZonesDetails.reverse()
-                self.worldClockTableView.reloadData()
-                self.checkExistingTimeZone()
-                squareLoading.stop()
+        if isConnectedToInternet() {
+            if zoneName != "" {
+                squareLoading = initSquareLoading(view: view)
+                getTimeZoneDetailList(zoneName: zoneName) { (result) -> () in
+                    self.timeZonesDetails.append(contentsOf: result.zones)
+                    self.timeZonesDetails.reverse()
+                    self.worldClockTableView.reloadData()
+                    self.checkExistingTimeZone()
+                    squareLoading.stop()
+                }
             }
+        } else {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {
+                self.internetConnectionAlert()
+            })
         }
     }
     

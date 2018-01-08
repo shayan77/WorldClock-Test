@@ -25,10 +25,10 @@ class WorldClockCell: UITableViewCell {
         
         if 7 ..< 18 ~= convertTimestampToHour(timestamp: "\(timeZoneDetail.timestamp!)") {
             day()
-            self.offsetLbl.text = "Day  \(secondsToHoursMinutes(seconds: timeZoneDetail.gmtOffset)) \(convertTimestampToTime(timestamp: String(timeZoneDetail.timestamp)))"
+            self.offsetLbl.text = "Day  \(secondsToHoursMinutes(seconds: timeZoneDetail.gmtOffset)) gmt offset"
         } else {
             night()
-            self.offsetLbl.text = "Night  \(secondsToHoursMinutes(seconds: timeZoneDetail.gmtOffset)) \(convertTimestampToTime(timestamp: String(timeZoneDetail.timestamp)))"
+            self.offsetLbl.text = "Night  \(secondsToHoursMinutes(seconds: timeZoneDetail.gmtOffset)) gmt offset"
         }
         self.analogClockView.hours = convertTimestampToHour(timestamp: "\(timeZoneDetail.timestamp!)")
         self.analogClockView.minutes = convertTimestampToMinute(timestamp: "\(timeZoneDetail.timestamp!)")
